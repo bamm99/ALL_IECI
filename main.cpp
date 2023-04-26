@@ -17,20 +17,24 @@ int main() {
     vector<vector<string> > asig_docs ={
             {"documento 1", "documento 2", "documento 3"}
     };
-
     vector<vector<string>> asig_libs ={
             {"libro 1", "libro 2", "libro 3"}
     };
-
     vector<vector<string>> asig_extras ={
             {"extra 1", "extra 2", "extra 3"}
     };
-
     int opcion;
+    cout << "----------------------------------------" << endl;
+    cout << "Bienvenido a ALL_IECI" << endl;
+    cout << "Software creado por Benjamin Mosso" << endl;
+    cout << "Estudiante de Ingenieria de Ejecucion en computacion e informatica" << endl;
+    cout << "Universidad Del Bio-Bio" << endl;
+
     do {
         cout << "----------------------------------------" << endl;
-        cout << "Bienvenido al programa de asignaturas" << endl;
-        cout << "1. Ver asignaturas de un semestre" << endl;
+        cout << "               Menu" << endl;
+        cout << "1. ver asignatura de un semestre" << endl;
+        cout << "2. Ver todas las asignaturas" << endl;
         cout << "0. Salir" << endl;
         cout << "----------------------------------------" << endl;
         cout << "Ingrese una opcion: ";
@@ -55,7 +59,7 @@ int main() {
                 cin >> asig;
                 cout << endl;
                 cout << "----------------------------------------" << endl;
-                cout << "Biblioteca de la asignatura " << sem << ":" << endl;
+                cout << "Biblioteca de la asignatura " << asig << ":" << endl;
                 cout << endl;
                 cout << "Documentos: " << endl;
                 int cont = 1;
@@ -78,19 +82,20 @@ int main() {
                 int opt;
                 cout << "ingrese el numero del archivo/link que desea revizar:";
                 cin >> opt;
-
-
             }
-        } else if (opcion != 0) {
+        }else if (opcion == 2 ) {
+            cout << "Asignaturas por semestre:" << endl;
+            for (int sem = 0; sem < semestres.size(); sem++) {
+                cout << "Semestre " << sem + 1 << ":" << endl;
+                for (int i = 0; i < semestres[sem].size(); i++) {
+                    cout << i + 1 << ". " << semestres[sem][i] << endl;
+                }
+                cout << endl;
+            }
+        }else if (opcion != 0) {
             cout << "Opcion invalida" << endl;
         }
-
-
-
-
     } while (opcion != 0);
-
     cout << "Gracias por usar el programa" << endl;
-
     return 0;
 }
