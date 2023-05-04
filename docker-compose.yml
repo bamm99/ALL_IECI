@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  proftpd:
+    image: debian:latest
+    ports:
+      - "2121:2121"
+      - "49152-65534:49152-65534"
+    volumes:
+      - ./proftpd.conf:/etc/proftpd/proftpd.conf
+      - ./ftp:/ftp
+    command: proftpd --nodaemon
