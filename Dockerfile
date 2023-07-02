@@ -1,10 +1,11 @@
 
-ENTRYPOINT ["top", "-b"]
+
 # Imagen base
 FROM ubuntu:20.04
 LABEL authors="benja"
 # Actualizar el sistema e instalar paquetes necesarios
 #(servidor ftp, git, servidor ssh, compilador de c++ para pruebas, tzdata para configurar la zona horaria
+RUN ln -fs /usr/share/zoneinfo/America/Santiago /etc/localtime
 RUN apt-get update && apt-get install -y \
     proftpd \
     git \
@@ -18,8 +19,6 @@ RUN apt-get update && apt-get install -y \
 ENV DEBCONF_NONINTERACTIVE_SEEN=true \
     DEBIAN_FRONTEND=noninteractive
 
-# Configurar la zona horaria de Chile
-ENV TZ=America/Santiago
 
 # Copiar la configuración de ProFTPD
 COPY proftpd.conf /etc/proftpd/proftpd.conf
