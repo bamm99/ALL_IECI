@@ -1,3 +1,0 @@
-/Users/labes10/CLionProjects/ALL_IECI/cmake-build-debug/CMakeFiles/ALL_IECI.dir
-/Users/labes10/CLionProjects/ALL_IECI/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Users/labes10/CLionProjects/ALL_IECI/cmake-build-debug/CMakeFiles/rebuild_cache.dir
