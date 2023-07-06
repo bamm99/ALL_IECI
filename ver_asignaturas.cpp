@@ -4,7 +4,7 @@
 
 using namespace std;
 
-vector<vector<string>> semestres = {
+vector<vector<string>> semestre = {
         {"Algebra 1", "Nociones de Computacion e Informatica", "Algoritmos y Bases de la Programacion", "Introduccion a la Ingenieria", "Comunicacion y Argumentacion"},
         {"Algebra 2", "Calculo 1", "Algoritmos y Programacion", "Estructuras Discretas para Ciencias de la Programacion"},
         {"Estadisticas y Probabilidades", "Calculo 2", "Estructura de Datos", "Administracion General", "Economia"},
@@ -27,16 +27,16 @@ vector<vector<string>> asig_extras = {
         {"extra 1", "extra 2", "extra 3"}
 };
 
-void verAsignatura(int semestre) {
-    if (semestre < 1 || semestre > 8) {
+void verAsignatura(int semestre2) {
+    if (semestre2 < 1 || semestre2 > 8) {
         cout << "Semestre invalido" << endl;
     } else {
-        cout << "Asignaturas del semestre " << semestre << ":" << endl;
-        for (int i = 0; i < semestres[semestre - 1].size(); i++) {
-            cout << i + 1 << ". " << semestres[semestre - 1][i] << endl;
+        cout << "Asignaturas del semestre " << semestre2 << ":" << endl;
+        for (int i = 0; i < semestre[semestre2 - 1].size(); i++) {
+            cout << i + 1 << ". " << semestre[semestre2 - 1][i] << endl;
         }
         int asignatura;
-        cout << "Ingrese el numero de la asignatura que desea visualizar (1-" << semestres[semestre - 1].size() << "): ";
+        cout << "Ingrese el numero de la asignatura que desea visualizar (1-" << semestre[semestre2 - 1].size() << "): ";
         cin >> asignatura;
         cout << endl;
         cout << "----------------------------------------" << endl;

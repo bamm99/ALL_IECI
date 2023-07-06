@@ -5,7 +5,10 @@ using namespace std;
 // Declaración de las funciones externas en los archivos separados
 extern void verAsignatura(int semestre);
 extern void verTodasAsignaturas();
-extern void verCursoLinux();
+extern void verCursoBasicoLinux();
+extern void verCursoIntermedioLinux();
+extern void verCursoAvanzadoLinux();
+
 
 int main() {
     int opcion;
@@ -42,7 +45,33 @@ int main() {
                 verTodasAsignaturas();
                 break;
             case 3:
-                verCursoLinux();
+                int a;
+                cout << "----------------------------------------" << endl;
+                cout << "               Menu" << endl;
+                cout << "1. Ver curso basico de linux" << endl;
+                cout << "2. Ver curso intermedio de linux" << endl;
+                cout << "3. Ver curso avanzado de Linux" << endl;
+                cout << "0. Salir" << endl;
+                cout << "----------------------------------------" << endl;
+                cout << "Ingrese una opcion: ";
+                cin >> a;
+                switch (a) {
+                    case 1:
+                        verCursoBasicoLinux();
+                        break;
+                    case 2:
+                        verCursoIntermedioLinux();
+                        break;
+                    case 3:
+                        verCursoAvanzadoLinux();
+                        break;
+                    case 0:
+                        cout << "Gracias por usar el programa" << endl;
+                        break;
+                    default:
+                        cout << "Opcion invalida" << endl;
+                        break;
+                }
                 break;
             case 0:
                 cout << "Gracias por usar el programa" << endl;

@@ -2,10 +2,11 @@ version: '3'
 
 services:
   proftpd:
-    image: debian:latest
+    image: proftpd
     ports:
       - "2121:2121"
-      - "49152-65534:49152-65534"
+      - "50000-50009:50000-50009"
+      - "2222:2222"  # Agregado para exponer el puerto SSH
     volumes:
       - ./proftpd.conf:/etc/proftpd/proftpd.conf
       - ./ftp:/ftp
