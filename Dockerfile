@@ -25,15 +25,16 @@ RUN cd /home && \
     git clone https://github.com/bamm99/ALL_IECI.git
 
 RUN cd /home/ALL_IECI &&\
-    cp proftpd.conf /etc/proftpd/proftpd.conf
-
+    cp proftpd.conf /etc/proftpd/proftpd.conf \
+    cp sftp.conf /etc/proftpd/sftp.conf \
+    cp sshd_config /etc/ssh/sshd_config
 
 # Configuración de SSH
 RUN mkdir /var/run/sshd
 RUN echo 'root:5426' | chpasswd
 RUN echo 'PasswordAuthentication yes' >> /etc/ssh/sshd_config
 
-# Puerto SSH
+# Puerto SSH y ftp
 ENV SSH_USERNAME=benja
 ENV SSH_PASSWORD=5426
 EXPOSE 2121
