@@ -27,7 +27,10 @@ RUN cd /home && \
 RUN cd /home/ALL_IECI &&\
     cp proftpd.conf /etc/proftpd/proftpd.conf \
     cp sftp.conf /etc/proftpd/sftp.conf \
-    cp sshd_config /etc/ssh/sshd_config
+    cp sshd_config /etc/ssh/sshd_config \
+RUN chmod 644 /etc/proftpd/proftpd.conf
+RUN chmod 644 /etc/proftpd/sftp.conf
+RUN chmod 644 /etc/ssh/sshd_config
 
 # Configuración de SSH
 RUN mkdir /var/run/sshd
