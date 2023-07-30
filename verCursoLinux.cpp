@@ -1,6 +1,3 @@
-//
-// Created by benja on 29-06-2023.
-//
 #include <iostream>
 #include <string>
 
@@ -11,7 +8,7 @@ void funciona () {
     string respuesta;
     cout << "¿Te funcionó el comando? (Sí/No): ";
     cin >> respuesta;
-
+    
     if (respuesta == "No") {
         // Ofrecer posibles soluciones
         cout << "Posibles soluciones:" << endl;
@@ -42,78 +39,96 @@ void verCursoBasicoLinux() {
             cout << "Uso: mkdir nombre_directorio" << endl;
             cout << "Ejemplo: mkdir documentos" << endl;
             funciona();
+    cout << "----------------------------------------" << endl;
             cout << "cd: El comando cd se utiliza para cambiar de directorio en Linux." << endl;
             cout << "Uso: cd nombre_directorio" << endl;
             cout << "Ejemplo: cd documentos" << endl;
             funciona();
+    cout << "----------------------------------------" << endl;
             cout << "pwd: El comando pwd se utiliza para mostrar el directorio de trabajo actual." << endl;
             cout << "Uso: pwd" << endl;
             cout << "Ejemplo: pwd" << endl;
             funciona();
+    cout << "----------------------------------------" << endl;
             cout << "touch: El comando touch se utiliza para crear un archivo vacío en Linux." << endl;
             cout << "Uso: touch nombre_archivo" << endl;
             cout << "Ejemplo: touch archivo.txt" << endl;
             funciona();
+    cout << "----------------------------------------" << endl;
             cout << "nano: El comando nano se utiliza para editar archivos de texto en Linux." << endl;
             cout << "Uso: nano nombre_archivo" << endl;
             cout << "Ejemplo: nano archivo.txt" << endl;
             cout << "Para guardar los cambios presione Ctrl + O y luego Ctrl + X para salir." << endl;
             funciona();
+    cout << "----------------------------------------" << endl;
             cout << "cat: El comando cat se utiliza para mostrar el contenido de un archivo en Linux." << endl;
             cout << "Uso: cat nombre_archivo" << endl;
             cout << "Ejemplo: cat archivo.txt" << endl;
             funciona();
+    cout << "----------------------------------------" << endl;
             cout << "grep: El comando grep se utiliza para buscar texto en un archivo en Linux." << endl;
             cout << "Uso: grep texto_a_buscar nombre_archivo" << endl;
             cout << "Ejemplo: grep hola archivo.txt" << endl;
             funciona();
+    cout << "----------------------------------------" << endl;
             cout << "less: El comando less se utiliza para mostrar el contenido de un archivo en Linux." << endl;
             cout << "Uso: less nombre_archivo" << endl;
             cout << "Ejemplo: less archivo.txt" << endl;
             funciona();
+    cout << "----------------------------------------" << endl;
             cout << "head: El comando head se utiliza para mostrar las primeras líneas de un archivo en Linux." << endl;
             cout << "Uso: head nombre_archivo" << endl;
             cout << "Ejemplo: head archivo.txt" << endl;
             funciona();
+    cout << "----------------------------------------" << endl;
             cout << "tail: El comando tail se utiliza para mostrar las últimas líneas de un archivo en Linux." << endl;
             cout << "Uso: tail nombre_archivo" << endl;
             cout << "Ejemplo: tail archivo.txt" << endl;
             funciona();
+    cout << "----------------------------------------" << endl;
             cout << "wc: El comando wc se utiliza para contar líneas, palabras y caracteres en un archivo en Linux." << endl;
             cout << "Uso: wc nombre_archivo" << endl;
             cout << "Ejemplo: wc archivo.txt" << endl;
             funciona();
+    cout << "----------------------------------------" << endl;
             cout << "sort: El comando sort se utiliza para ordenar las líneas de un archivo en Linux." << endl;
             cout << "Uso: sort nombre_archivo" << endl;
             cout << "Ejemplo: sort archivo.txt" << endl;
             funciona();
+    cout << "----------------------------------------" << endl;
             cout << "uniq: El comando uniq se utiliza para eliminar líneas duplicadas de un archivo en Linux." << endl;
             cout << "Uso: uniq nombre_archivo" << endl;
             cout << "Ejemplo: uniq archivo.txt" << endl;
             funciona();
+    cout << "----------------------------------------" << endl;
             cout << "mv: El comando mv se utiliza para mover archivos y directorios en Linux." << endl;
             cout << "Uso: mv origen destino" << endl;
             cout << "Ejemplo: mv archivo.txt documentos/" << endl;
             funciona();
+    cout << "----------------------------------------" << endl;
             cout << "ls: El comando ls se utiliza para listar los archivos y directorios en el directorio actual." << endl;
             cout << "Uso: ls" << endl;
             cout << "Ejemplo: ls" << endl;
             funciona();
+    cout << "----------------------------------------" << endl;
             cout << "cp: El comando cp se utiliza para copiar archivos y directorios en Linux." << endl;
             cout << "Uso: cp origen destino" << endl;
             cout << "Ejemplo: para este ejemplo primero usaremos el comando 'mkdir carpeta' \ny luego usaremos 'cp archivo.txt carpeta/'" << endl;
             funciona();
+    cout << "----------------------------------------" << endl;
             cout << "rm: El comando rm se utiliza para eliminar archivos y directorios en Linux." << endl;
             cout << "Uso: rm nombre_archivo" << endl;
             cout << "Ejemplo: rm archivo.txt" << endl;
             funciona();
+    cout << "----------------------------------------" << endl;
 }
 
 void verCursoIntermedioLinux() {
     cout << "Curso intermedio de Linux" << endl;
     cout << "En este curso aprenderás a utilizar los compiladores de codigo mas comunes de Linux." << endl;
     cout << "Principalmente, aprenderás a compilar y ejecutar programas en C ,C++, Java y python." << endl;
-    while (int resp = 0){
+    int resp = 0;
+
         cout << "----------------------------------------" << endl;
         cout << "       compiladores " << endl;
         cout << " 1.- C " << endl;
@@ -162,7 +177,6 @@ void verCursoIntermedioLinux() {
                 break;
         }
     }
-}
 
 void verCursoAvanzadoLinux() {
     cout << "Curso avanzado de Linux" << endl;
@@ -194,7 +208,7 @@ void verCursoAvanzadoLinux() {
     cout << "Para actualizar un repositorio de git, debes ejecutar el siguiente comando en la terminal: git pull" << endl;
     cout << "Para ver el estado de un repositorio de git, debes ejecutar el siguiente comando en la terminal: git status" << endl;
     cout << "Para ver el historial de un repositorio de git, debes ejecutar el siguiente comando en la terminal: git log" << endl;
-    cout << "Para ver el historial de un repositorio de git de forma gráfica, debes ejecutar el siguiente comando en la terminal: git log --graph" << endl;
+    cout << "Para ver el historial de un repositorio de git de forma gráfica, debes ejecutar el siguiente comando en la terminal: git log --graph \n \n " << endl;
     funciona();
     cout << "Para crear una rama en un repositorio de git, debes ejecutar el siguiente comando en la terminal: git branch nombre_rama" << endl;
     cout << "Para cambiar de rama en un repositorio de git, debes ejecutar el siguiente comando en la terminal: git checkout nombre_rama" << endl;

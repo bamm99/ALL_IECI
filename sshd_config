@@ -1,4 +1,0 @@
-# This is the configuration file for SSH.
-
-# Disable access to the SFTP shell
-ForceCommand internal-sftp

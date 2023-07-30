@@ -2,13 +2,11 @@
 
 using namespace std;
 
-// Declaración de las funciones externas en los archivos separados
 extern void verAsignatura(int semestre);
 extern void verTodasAsignaturas();
 extern void verCursoBasicoLinux();
 extern void verCursoIntermedioLinux();
 extern void verCursoAvanzadoLinux();
-
 
 int main() {
     int opcion;
