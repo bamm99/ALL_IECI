@@ -16,24 +16,13 @@ apt-get update -y
 apt-get upgrade -y
 
 # Instalar git, proftpd y openssh-server sin interacción del usuario
-apt-get install -y git proftpd openssh-server
+apt-get install -y proftpd openssh-server
 
 # Limpiar la caché de paquetes descargados
 apt-get clean
 
 # Eliminar el archivo de configuración antiguo de proftpd si existe
 rm -f /etc/proftpd/proftpd.conf
-
-# Cambiar al directorio /home
-cd /home
-
-# Clonar el repositorio de GitHub si no existe
-if [ ! -d "ALL_IECI" ]; then
-  git clone https://github.com/bamm99/ALL_IECI.git
-fi
-
-# Cambiar al directorio ALL_IECI
-cd ALL_IECI
 
 # Copiar el archivo de configuración de proftpd al lugar correcto
 cp proftpd.conf /etc/proftpd/proftpd.conf
