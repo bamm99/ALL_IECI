@@ -68,7 +68,7 @@ chmod +x configurar_servidor.sh
 ```
 y ahora ya puede ejecutar el script
 ``` 
-./configurar_servidor.sh
+sudo ./configurar_servidor.sh
 ```
 este script se encargara de instalar y configurar el servidor ftp, ademas de instalar el 
 cliente ssh, que es el que se encargara de la conexion entre el servidor y el cliente
