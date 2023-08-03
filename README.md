@@ -1,4 +1,5 @@
 # ALL_IECI
+
 este proyecto es la base de mi proyecto de titulo, este busca brindar una herramienta
 que de acceso a la informacion de cada asignatura de la malla de Ingenieria de Ejecucion
 en Computacion e Informatica de la Universidad del Bío Bío
