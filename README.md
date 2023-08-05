@@ -9,82 +9,130 @@ en Computacion e Informatica de la Universidad del Bío Bío
 _Estas instrucciones te permitirán obtener una copia del proyecto en funcionamiento en tu
 máquina local para propósitos de desarrollo y pruebas._
 
-## Pre-requisitos 📋
+## Entorno de desarrollo y pruebas📋
 
-### Puntos clave
+Este proyecto esta diseñado en un entorno de desarrollo especifico, por lo que se recomienda
+utilizar el mismo entorno para evitar problemas de compatibilidad.
 
-dentro del codigo de este proyecto se encuentran 2 puntos clave, el primero es que en el archivo "ver_asignatura.cpp"
-en la linea de codigo 38, se encuentra la direccion ip del servidor, por lo que si se desea utilizar este proyecto debe colocar la 
-ip de su servidor con el respectivo puerto,
+entorno utilizado:
+* virtualbox 7.0.10
+  * ubuntu server 20.04
+  * ubuntu desktop 22.04.2 LTS
+* CLion 2023.2
+* G++ 11.4.0
+* Curl 7.68.0
+* OpenSSH 8.2p1
+* ProFTPD 1.3.6c
 
+Para montar un entorno de desarrollo como el que se utilizo en este proyecto, se deben hacer 
+reglas de redireccionamiento de puertos en virtualbox, para ello debes seguir los siguientes pasos:
+
+1.- Primero debes crear las maquinas virtuales en virtualbox, en este caso se utilizo ubuntu server 20.04 
+y ubuntu desktop 22.04.2 LTS
+
+2.- Una vez creadas las maquinas virtuales, debes ir a la configuracion de cada una de ellas y en la seccion de red, 
+debe estar seleccionada la opcion de red NAT para ambas maquinas.
+
+3.- En opciones avanzadas de la seccion de red, en la opccion "reenvio de puertos" debes agregar una regla de redireccionamiento
+de puertos, en este caso se crearon reglas para los puertos: 
+
+* 21 (puerto ftp)
+* 22 (puerto ssh)
+* 50000-50009 (rango de puertos pasivos para ftp)
+
+## Puntos claves para la conexion cliente-servidor 🔧
+
+Para poder conectar el servidor con el cliente, se utilizo el protocolo SSH, por lo que
+se recomienda tener conocimientos basicos de este protocolo, ademas de tener conocimientos
+basicos de FTP, ya que el servidor ftp se encarga de la gestion de los archivos
+
+En este caso la conexion requiere 4 cosas importantes para poder compilar el cliente:
+
+* IP del servidor
+* Puerto del servidor
+* Usuario del servidor
+* Contraseña del servidor
+
+Estos datos se deben ingresar en el archivo config.cpp, en las siguientes lineas
 ```
-        std::string ftpurl = "ftp://[ip del servidor]:[puerto ftp default 21 ]/" +semftp + "/" +asigftp +"/";
-```
-#### ejemplo
-```
-        std::string ftpurl = "ftp://192.168.1.117:21/" +semftp + "/" +asigftp +"/";
-```
+#include "string"
 
-el segundo punto clave es que en el archivo "connect_server.cpp" en las lineas de codigo 88-89, 
-se encuentran las credenciales del servidor, por lo que si se desea utilizar este proyecto debe colocar 
-las credenciales de su respectivo servidor
-
-```
-        curl_easy_setopt(curl, CURLOPT_USERNAME, "[usuario]");
-        curl_easy_setopt(curl, CURLOPT_PASSWORD, "[contraseña]");
-```
-#### ejemplo
-```
-        curl_easy_setopt(curl, CURLOPT_USERNAME, "benjamin");
-        curl_easy_setopt(curl, CURLOPT_PASSWORD, "1234");
+namespace config {
+    
+    std::string ftp_IP = "[AQUI VA LA IP DEL SERVIDOR]";
+    
+    std::string ftp_port = "[AQUI VA EL PUERTO]";
+    
+    std::string ftp_user = "[AQUI VA EL USUARIO]";
+    
+    std::string ftp_pass = "[AQUI VA LA CONTRASEÑA]";
+}
 ```
 
 
-### Que cosas necesitas para instalar el software y como instalarlas
+## Instalación 🔧
+### Servidor
 
-primero que nada, este proyecto esta desarrollado en c++, por lo que se 
-recomienda tener un IDE que soporte este lenguaje, en mi caso yo utilizo CLion, 
-pero puedes utilizar el que mas te acomode.
-
-Este proyecto consta de dos partes, la primera es el servidor, que se encarga de la gestion de los archivos mediante un servidor ftp (ProFTPD) y el cliente que es la cara visible al usuario
-
-### Instalación 🔧
-primero que nada en el servidor debes instalar el servidor ftp, en este caso se uso ProFTPD,
-para instalarlo en ubuntu server, el proyecto consta con un script que hara toda la instalacion y configuracion por ti, para ello debes ejecutar el siguiente comando
+Primero que nada en el servidor debes instalar el servidor ftp, en este caso se uso ProFTPD,
+para instalarlo en ubuntu server, el proyecto consta con un script que hara toda la instalacion
+y configuracion por ti, para ello debes ejecutar el siguiente comando
 ```
 sudo apt-get install git
 ```
-luego
+
+con esto nos aseguramos que tu servidor tenga git para trabajar, luego clonamos este repositorio con el comando:
+
 ```
 git clone htpps://github.com/bamm99/ALL_IECI.git
 ```
-una vez clonado el repositorio, debes ingresar a la carpeta del proyecto
+
+una vez clonado el repositorio, debes entrar al directorio del proyecto
+
 ```
 cd /ALL_IECI
 ```
-una vez dentro debe dar los permisos al script para que este pueda hacer la instalacion
+
+una vez dentro, debes dar los permisos al script para que este pueda hacer la instalacion y configuracion
+
 ```
 chmod +x configurar_servidor.sh
 ```
+
 y ahora ya puede ejecutar el script
+
 ``` 
 sudo ./configurar_servidor.sh
 ```
-este script se encargara de instalar y configurar el servidor ftp, ademas de instalar el 
-cliente ssh, que es el que se encargara de la conexion entre el servidor y el cliente
 
-Para compilar el proyecto en tu maquina local, debes instalar G++, para ello debes
-ejecutar el siguiente comando
+este script se encargara de instalar y configurar el servidor ftp, ademas de instalar el 
+cliente ssh, que es el que se encargara de la conexion entre el servidor y el cliente, tambien
+se encarga de copiar los archivos de configuracion a su respectivo directorio, y por ultimo ejecuta otro script
+el cual hace un pequeño poblado de archivos para poder hacer pruebas con el cliente.
+
+una vez terminada la ejecucion de los scripts, debes reiniciar el servidor para que los 
+cambios surtan efecto, para ello debes ejecutar el siguiente comando:
+
+```
+service proftpd restart
+```
+
+### Cliente
+Para compilar el proyecto en tu maquina (en el entorno de desarrollo corresponde a 
+la maquina de ubuntu desktop 22.04.2 lts), debes instalar G++, para ello debes
+ejecutar el siguiente comando:
+
 ``` 
 sudo apt-get install g++
 ```
+
 una vez instalado, debes ingresar a la carpeta del proyecto
+
 ```
 cd /ALL_IECI
 ```
 una vez dentro debes ejecutar el siguiente comando
 ```
-g++ -o ALL_IECI main.cpp ver_asignaturas.cpp connect_server.cpp ver_todas_asignaturas.cpp verCursoLinux.cpp -lcurl -std=c++11
+g++ -o ALL_IECI main.cpp config.cpp ver_asignaturas.cpp connect_server.cpp verCursoLinux.cpp ver_todas_asignaturas.cpp -lcurl -std=c++17
 ```
 y para iniciar la app debes ejecutar el siguiente comando
 ```

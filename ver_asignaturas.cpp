@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include "config.h"
 
 using namespace std;
 extern void listar(std::string ftp_url);
@@ -35,7 +36,7 @@ void verAsignatura(int semestre2) {
 
         std::string asig = "asignatura";
         std::string asigftp = asig + std::to_string(asignatura);
-        std::string ftpurl = "ftp://192.168.1.117:21/" +semftp + "/" +asigftp +"/";
+        std::string ftpurl = "ftp://"+config::ftp_IP +":" + config::ftp_port +"/" +semftp + "/" +asigftp +"/";
 
 
         cout << endl;

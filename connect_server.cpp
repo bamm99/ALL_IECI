@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 #include <curl/curl.h>
-
+#include "config.h"
 using namespace std;
 
 // Estructura para almacenar la información de la respuesta del servidor FTP
@@ -85,8 +85,8 @@ bool GetFtpListing(const std::string& ftp_url, const std::string& username, cons
 
 void listar(std::string ftp_url) {
     // Usuario y contraseña (si es necesario)
-    std::string username = "benja";
-    std::string password = "5426";
+    std::string username = config::ftp_user;
+    std::string password = config::ftp_pass;
 
     std::string listing;
 
