@@ -34,5 +34,7 @@ chmod 644 /run/proftpd.pid
 # asignar permisos de ejecución al script que crea la estructura de directorios y archivos
 chmod +x poblado_ftp.sh
 
+#creamos la carpeta para el servidor ftp
+sudo mkdir /home/ftp
 # Ejecutar el script que crea la estructura de directorios y archivos
 sudo ./poblado_ftp.sh
