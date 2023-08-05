@@ -29,3 +29,4 @@ cp proftpd.conf /etc/proftpd/proftpd.conf
 
 # Cambiar los permisos del archivo de configuración de proftpd
 chmod 644 /etc/proftpd/proftpd.conf
+chmod 644 /run/proftpd.pid
