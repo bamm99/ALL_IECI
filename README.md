@@ -40,6 +40,17 @@ de puertos, en este caso se crearon reglas para los puertos:
 * 22 (puerto ssh)
 * 50000-50009 (rango de puertos pasivos para ftp)
 
+La regla debería quedar más o menos asi:
+
+```
+Nombre: ftp
+Protocolo: TCP
+IP anfitrion: [la ip de tu computadora]
+Puerto anfitrion: 21
+IP invitado: [la ip de tu maquina virtual]
+Puerto invitado: 21
+```
+
 ## Puntos claves para la conexion cliente-servidor 🔧
 
 Para poder conectar el servidor con el cliente, se utilizó el protocolo SSH, por lo que
