@@ -1,4 +1,5 @@
 #!/bin/bash
+cd
 cd /home/ftp
 mkdir semestre1 semestre2 semestre3 semestre4 semestre5 semestre6 semestre7 semestre8
 mkdir practicas

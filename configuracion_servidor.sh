@@ -30,3 +30,9 @@ cp proftpd.conf /etc/proftpd/proftpd.conf
 # Cambiar los permisos del archivo de configuración de proftpd
 chmod 644 /etc/proftpd/proftpd.conf
 chmod 644 /run/proftpd.pid
+
+# asignar permisos de ejecución al script que crea la estructura de directorios y archivos
+chmod +x poblado_ftp.sh
+
+# Ejecutar el script que crea la estructura de directorios y archivos
+sudo ./poblado_ftp.sh
