@@ -115,8 +115,8 @@ Y ahora ya puede ejecutar el script.
 sudo ./configurar_servidor.sh
 ```
 
-Este script se encargará de instalar y configurar el servidor ftp, además de instalar el 
-cliente ssh, que es el que se encargara de la conexion entre el servidor y el cliente, también
+Este script se encargará de instalar y configurar el servidor ftp (el servidor quedara configurado en el puerto 21, con puertos pasivos dede el 50000
+hasta el 50009), además de instalar el cliente ssh, que es el que se encargara de la conexion entre el servidor y el cliente, también
 se encarga de copiar los archivos de configuracion a su respectivo directorio, y por último ejecuta otro script
 el cual hace un pequeño poblado de archivos para poder hacer pruebas con el cliente.
 
