@@ -115,8 +115,8 @@ Y ahora ya puede ejecutar el script.
 sudo ./configurar_servidor.sh
 ```
 
-Este script se encargará de instalar y configurar el servidor ftp, además de instalar el 
-cliente ssh, que es el que se encargara de la conexion entre el servidor y el cliente, también
+Este script se encargará de instalar y configurar el servidor ftp, este quedara configurado por defecto en el puerto 21, con puertos pasivos dede el 50000
+hasta el 50009 (si se quieren cambiar los puertos por defecto, se debe modificar el archivo proftpd.conf en el directorio /etc/proftpd/ ), además de instalar el cliente ssh, que es el que se encargara de la conexion entre el servidor y el cliente, también
 se encarga de copiar los archivos de configuracion a su respectivo directorio, y por último ejecuta otro script
 el cual hace un pequeño poblado de archivos para poder hacer pruebas con el cliente.
 
@@ -129,15 +129,24 @@ service proftpd restart
 
 ### Cliente
 Para compilar el proyecto en tu maquina (en el entorno de desarrollo corresponde a 
-la maquina de ubuntu desktop 22.04.2 lts), debes instalar G++, para ello debes
-ejecutar el siguiente comando:
-
+la maquina de ubuntu desktop 22.04.2 lts), debes instalar G++, curl y git, para ello debes
+ejecutar el siguiente comando para instalar el compilador:
 ``` 
 sudo apt-get install g++
 ```
-
-Una vez instalado, debes ingresar a la carpeta del proyecto.
-
+Tambien debes instalar la libreria curl, para ello debes usar el siguiente comando
+```
+sudo apt install libcurl4-openssl-dev
+```
+Tambien debes instalar git en tu maquina para poder clonar el repositorio y compilarlo
+```
+sudo apt-get install git
+```
+Una vez instalado el compilador y la libreria, debes clonar el repositorio
+```
+git clone htpps://github.com/bamm99/ALL_IECI.git
+```
+Luego debes ingresar al directorio del proyecto.
 ```
 cd /ALL_IECI
 ```
@@ -145,7 +154,7 @@ Una vez dentro debes ejecutar el siguiente comando.
 ```
 g++ -o ALL_IECI main.cpp config.cpp ver_asignaturas.cpp connect_server.cpp verCursoLinux.cpp ver_todas_asignaturas.cpp -lcurl -std=c++17
 ```
-Y para iniciar la app debes ejecutar el siguiente comando.
+Y una vez compilado, para iniciar la app debes ejecutar el siguiente comando.
 ```
 ./ALL_IECI
 ```
