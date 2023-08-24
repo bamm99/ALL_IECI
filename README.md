@@ -94,7 +94,7 @@ sudo apt-get install git
 Con esto nos aseguramos que tu servidor tenga git para trabajar, luego clonamos este repositorio con el comando:
 
 ```
-git clone htpps://github.com/bamm99/ALL_IECI.git
+git clone https://github.com/bamm99/ALL_IECI.git
 ```
 
 Una vez clonado el repositorio, debes entrar al directorio del proyecto.
@@ -144,7 +144,7 @@ sudo apt-get install git
 ```
 Una vez instalado el compilador y la libreria, debes clonar el repositorio
 ```
-git clone htpps://github.com/bamm99/ALL_IECI.git
+git clone https://github.com/bamm99/ALL_IECI.git
 ```
 Luego debes ingresar al directorio del proyecto.
 ```
